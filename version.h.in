@@ -1,0 +1,3 @@
+#define major @chiara_VERSION_MAJOR@
+#define minor @chiara_VERSION_MINOR@
+
