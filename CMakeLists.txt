@@ -6,12 +6,19 @@ option(USE_MYLIB "Use Mylib" ON)
 
 configure_file(version.h.in version.h)
 
-add_subdirectory(lib)
+if(USE_MYLIB)
+	add_subdirectory(lib)
+	list(APPEND MYLIB_LIB lib)
+	list(APPEND MYLIB_INC "${PROJECT_SOURCE_DIR}/lib")
+endif()	
 
 add_executable(chiara chiara.c)
 
-target_link_libraries(chiara PUBLIC lib)
-target_include_directories(chiara PUBLIC 
-			"${PROJECT_BINARY_DIR}"
-			"${PROJECT_SOURCE_DIR}/lib")
+# link
+target_link_libraries(chiara PUBLIC ${MYLIB_LIB})
+
+# include dir
+target_include_directories(chiara PUBLIC "${PROJECT_BINARY_DIR}"
+	${MYLIB_INC}
+)
 

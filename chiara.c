@@ -4,7 +4,13 @@
 
 int main (int argc, char **argv)
 {
-	int a = func(6);
+	int a;
+
+#ifdef USE_MYLIB	
+	a = func(6);
+#else
+	a = 0;
+#endif
 
 	printf("hello\n");
 	printf("version %d.%d\n", major, minor);

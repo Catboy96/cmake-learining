@@ -6,3 +6,5 @@
 
 # project ignore list
 version.h
+lib/liblib.a
+
