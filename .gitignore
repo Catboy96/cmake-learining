@@ -1,0 +1,8 @@
+# cmake ignore list
+*CMakeCache.txt
+*CMakeFiles/
+*cmake_install.cmake
+*Makefile
+
+# project ignore list
+version.h
